@@ -144,16 +144,16 @@ public class Descarte_Inclusao extends JFrame {
 						macho1.setStatus("Descartado");
 						machoDao.alter(macho1);
 						dtmDados.setRowCount(1);
-						int linha=1;
-						for(DescarteMacho descarteMacho:descarteMachoDao.listarTodos()){
-							dtmDados.setRowCount(dtmDados.getRowCount()+1);
+						int linha = 1;
+						for (DescarteMacho descarteMacho : descarteMachoDao.listarTodos()) {
+							dtmDados.setRowCount(dtmDados.getRowCount() + 1);
 							dtmDados.setValueAt(descarteMacho.getMacho().getBrinco(), linha, 0);
 							dtmDados.setValueAt(descarteMacho.getData(), linha, 1);
 							dtmDados.setValueAt(descarteMacho.getCausa().getNome(), linha, 2);
 							linha++;
 						}
-						for(DescarteMatriz descarteMatriz:descarteMatrizDao.listarTodos()){
-							dtmDados.setRowCount(dtmDados.getRowCount()+1);
+						for (DescarteMatriz descarteMatriz : descarteMatrizDao.listarTodos()) {
+							dtmDados.setRowCount(dtmDados.getRowCount() + 1);
 							dtmDados.setValueAt(descarteMatriz.getMatriz().getBrinco(), linha, 0);
 							dtmDados.setValueAt(descarteMatriz.getData(), linha, 1);
 							dtmDados.setValueAt(descarteMatriz.getCausa().getNome(), linha, 2);
@@ -162,23 +162,23 @@ public class Descarte_Inclusao extends JFrame {
 						JOptionPane.showMessageDialog(null, "Macho Descartado com Sucesso");
 						dispose();
 					}
-					if(jrbFemea.isSelected()){
+					if (jrbFemea.isSelected()) {
 						descarteMatriz.setData(Date.valueOf(jtfData.getText()));
 						descarteMatriz.setCausa(causaDao.listarTodos().get(jcbCausas.getSelectedIndex()));
 						descarteMatrizDao.store(descarteMatriz);
 						matriz1.setStatus("Descartada");
 						matrizDao.alter(matriz1);
 						dtmDados.setRowCount(1);
-						int linha=1;
-						for(DescarteMacho descarteMacho:descarteMachoDao.listarTodos()){
-							dtmDados.setRowCount(dtmDados.getRowCount()+1);
+						int linha = 1;
+						for (DescarteMacho descarteMacho : descarteMachoDao.listarTodos()) {
+							dtmDados.setRowCount(dtmDados.getRowCount() + 1);
 							dtmDados.setValueAt(descarteMacho.getMacho().getBrinco(), linha, 0);
 							dtmDados.setValueAt(descarteMacho.getData(), linha, 1);
 							dtmDados.setValueAt(descarteMacho.getCausa().getNome(), linha, 2);
 							linha++;
 						}
-						for(DescarteMatriz descarteMatriz:descarteMatrizDao.listarTodos()){
-							dtmDados.setRowCount(dtmDados.getRowCount()+1);
+						for (DescarteMatriz descarteMatriz : descarteMatrizDao.listarTodos()) {
+							dtmDados.setRowCount(dtmDados.getRowCount() + 1);
 							dtmDados.setValueAt(descarteMatriz.getMatriz().getBrinco(), linha, 0);
 							dtmDados.setValueAt(descarteMatriz.getData(), linha, 1);
 							dtmDados.setValueAt(descarteMatriz.getCausa().getNome(), linha, 2);

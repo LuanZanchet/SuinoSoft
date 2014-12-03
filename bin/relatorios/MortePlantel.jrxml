@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79a0a743-d62f-41b0-b71e-e9488571b459">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select idMorte,
+	dataMorte,
+	Causa.nome,
+	idMacho from mortemacho join causa using(idcausa);]]>
+	</queryString>
+	<field name="idMorte" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataMorte" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idMacho" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="143" y="-44" width="1244" height="123" uuid="98089b12-37b0-466a-922c-e5e1d66780f3"/>
+				<imageExpression><![CDATA["Relatorio.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="15" width="167" height="20" uuid="108bd0c1-4fe9-470a-b3eb-31f6244cbbcc"/>
+				<text><![CDATA[Lista de Morte do plantel]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="41" y="1" width="100" height="20" uuid="1cfaff68-f173-4dad-b707-5d4f5c635486"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="1" width="100" height="20" uuid="b1e5f65e-fdcb-46ad-aedc-4b0d87d3104f"/>
+				<text><![CDATA[Causa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="1" width="100" height="20" uuid="c92210d8-2a6e-4a26-a944-06ed73f1b40f"/>
+				<text><![CDATA[dataMorte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="1" width="100" height="20" uuid="5a5be44f-2239-4712-ae44-1c9611fe0f04"/>
+				<text><![CDATA[idMacho]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="41" y="6" width="100" height="20" uuid="6c35bb4e-acc2-4174-860f-2d0f22635415"/>
+				<textFieldExpression><![CDATA[$F{idMorte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="6" width="100" height="20" uuid="6b38eb8c-8c54-4e30-a4e5-a73750e3729c"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="6" width="100" height="20" uuid="2987e271-a861-46ec-8622-c61226a6d5f3"/>
+				<textFieldExpression><![CDATA[$F{dataMorte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="356" y="6" width="100" height="20" uuid="4549cec8-a932-41f1-b284-c1716900e822"/>
+				<textFieldExpression><![CDATA[$F{idMacho}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="685" y="13" width="100" height="20" uuid="b4f6fba0-4717-456f-bc4e-29350b191a44"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="685" y="34" width="100" height="20" uuid="772e120b-2741-4ead-ba79-8663b9ffaecc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="649" y="13" width="36" height="20" uuid="2948b4b6-d7c8-4c2f-b360-a76d81b9fa3e"/>
+				<text><![CDATA[Page :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="664" y="34" width="85" height="20" uuid="c9e1fa8d-adfd-412c-88dd-10ac352b623b"/>
+				<text><![CDATA[Of]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

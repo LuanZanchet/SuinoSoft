@@ -16,16 +16,13 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import br.edu.unoesc.projetofinal.dao.CompraMedicamentoDAO;
-import br.edu.unoesc.projetofinal.dao.CrudDAO;
 import br.edu.unoesc.projetofinal.dao.FornecedorDAO;
 import br.edu.unoesc.projetofinal.dao.NotaCompraDAO;
-import br.edu.unoesc.projetofinal.dao.RacaDAO;
 import br.edu.unoesc.projetofinal.dao.VacinaDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
 import br.edu.unoesc.projetofinal.model.CompraMedicamento;
 import br.edu.unoesc.projetofinal.model.Fornecedor;
 import br.edu.unoesc.projetofinal.model.NotaCompra;
-import br.edu.unoesc.projetofinal.model.Raca;
 import br.edu.unoesc.projetofinal.model.Vacina;
 
 public class CompraMedicamento_Edicao extends JFrame {
@@ -48,26 +45,26 @@ public class CompraMedicamento_Edicao extends JFrame {
 	private NotaCompraDAO notaDAO = DaoFactory.get().notaCompraDao();
 	private FornecedorDAO fornecedorDAO = DaoFactory.get().fornecedorDao();
 	private VacinaDAO vacinaDAO = DaoFactory.get().vacinaDao();
-	private JTextField jtfGuardaValor=new JTextField();
-
+	private JTextField jtfGuardaValor = new JTextField();
 
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);
 	}
-	public void setValor(Integer posicao){
-		for(Fornecedor fornecedor:fornecedorDAO.listarTodos()){
-			if(fornecedor.getNome().equals(compraMedicamentoDAO.listarTodos().get(posicao).getFornecedor().getNome())){
+
+	public void setValor(Integer posicao) {
+		for (Fornecedor fornecedor : fornecedorDAO.listarTodos()) {
+			if (fornecedor.getNome().equals(compraMedicamentoDAO.listarTodos().get(posicao).getFornecedor().getNome())) {
 				jcbFornecedorMedicamento.setSelectedItem(fornecedor.getNome());
 			}
 		}
-		for(NotaCompra nota:notaDAO.listarTodos()){
-			if(nota.getCodigo().equals(compraMedicamentoDAO.listarTodos().get(posicao).getNota().getCodigo())){
+		for (NotaCompra nota : notaDAO.listarTodos()) {
+			if (nota.getCodigo().equals(compraMedicamentoDAO.listarTodos().get(posicao).getNota().getCodigo())) {
 				jcbNotaMedicamento.setSelectedItem(nota.getCodigo());
 			}
 		}
-		for(Vacina vacina:vacinaDAO.listarTodos()){
-			if(vacina.getNome().equals(compraMedicamentoDAO.listarTodos().get(posicao).getVacina().getNome())){
+		for (Vacina vacina : vacinaDAO.listarTodos()) {
+			if (vacina.getNome().equals(compraMedicamentoDAO.listarTodos().get(posicao).getVacina().getNome())) {
 				jcbVacina.setSelectedItem(vacina.getNome());
 			}
 		}
@@ -97,7 +94,7 @@ public class CompraMedicamento_Edicao extends JFrame {
 
 		posicionaObjeto(jbtCadastrarFornCli, 90, 325, 100, 30);
 		posicionaObjeto(jbtSair, 230, 325, 80, 20);
-		
+
 		for (Fornecedor fornecedor : fornecedorDAO.listarTodos()) {
 			jcbFornecedorMedicamento.addItem(fornecedor.getNome());
 		}
@@ -109,59 +106,58 @@ public class CompraMedicamento_Edicao extends JFrame {
 			jcbVacina.addItem(vacina.getNome());
 		}
 
-		
 		jbtCadastrarFornCli.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int aux=0;
-				if(jtfDataMedicamento.getText().isEmpty()){
+				int aux = 0;
+				if (jtfDataMedicamento.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Entre com a data do Medicamento");
 				}
-				
-				
-				else if(jtfQuantidadeMedicamento.getText().isEmpty()){
+
+				else if (jtfQuantidadeMedicamento.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Entre com a quantidade");
 				}
-			
-				else{
-					for(CompraMedicamento compra:compraMedicamentoDAO.listarTodos()){
-						if(compra.getVacina().equals(jcbVacina.getSelectedItem())){
-							aux=1;
+
+				else {
+					for (CompraMedicamento compra : compraMedicamentoDAO.listarTodos()) {
+						if (compra.getVacina().equals(jcbVacina.getSelectedItem())) {
+							aux = 1;
 							break;
 						}
 					}
-					
-					if(aux==0){
-				   CompraMedicamento compra = new CompraMedicamento();
-				   	compra=compraMedicamentoDAO.listarTodos().get(Integer.valueOf(jtfGuardaValor.getText()));
-					compra.setVacina(vacinaDAO.listarTodos().get(jcbVacina.getSelectedIndex()));
-					compra.setData(Date.valueOf(jtfDataMedicamento.getText()));
-					compra.setFornecedor(fornecedorDAO.listarTodos().get(jcbFornecedorMedicamento.getSelectedIndex()));
-					compra.setNota((notaDAO.listarTodos().get(jcbNotaMedicamento.getSelectedIndex())));
-					compra.setQuantidade(Integer.valueOf(jtfQuantidadeMedicamento.getText()));
-					compraMedicamentoDAO.alter(compra);
-					JOptionPane.showMessageDialog(null, "Compra alterada com Sucesso");
-					dtmDados.setRowCount(1);
-					int linha=1;
-					for (CompraMedicamento compra1 : compraMedicamentoDAO.listarTodos()) {
-						dtmDados.setRowCount(dtmDados.getRowCount() + 1);
-						dtmDados.setValueAt(compra1.getCodigo(), linha, 0);
-						dtmDados.setValueAt(compra1.getVacina().getCodigo(), linha, 1);
-						dtmDados.setValueAt(compra1.getData(), linha, 2);
-						dtmDados.setValueAt(compra1.getFornecedor().getNome(), linha, 3);
-						dtmDados.setValueAt(compra1.getNota().getCodigo(), linha, 4);
-						dtmDados.setValueAt(compra1.getQuantidade(), linha, 5);
-						linha++;
-					
+
+					if (aux == 0) {
+						CompraMedicamento compra = new CompraMedicamento();
+						compra = compraMedicamentoDAO.listarTodos().get(Integer.valueOf(jtfGuardaValor.getText()));
+						compra.setVacina(vacinaDAO.listarTodos().get(jcbVacina.getSelectedIndex()));
+						compra.setData(Date.valueOf(jtfDataMedicamento.getText()));
+						compra.setFornecedor(fornecedorDAO.listarTodos().get(
+								jcbFornecedorMedicamento.getSelectedIndex()));
+						compra.setNota((notaDAO.listarTodos().get(jcbNotaMedicamento.getSelectedIndex())));
+						compra.setQuantidade(Integer.valueOf(jtfQuantidadeMedicamento.getText()));
+						compraMedicamentoDAO.alter(compra);
+						JOptionPane.showMessageDialog(null, "Compra alterada com Sucesso");
+						dtmDados.setRowCount(1);
+						int linha = 1;
+						for (CompraMedicamento compra1 : compraMedicamentoDAO.listarTodos()) {
+							dtmDados.setRowCount(dtmDados.getRowCount() + 1);
+							dtmDados.setValueAt(compra1.getCodigo(), linha, 0);
+							dtmDados.setValueAt(compra1.getVacina().getCodigo(), linha, 1);
+							dtmDados.setValueAt(compra1.getData(), linha, 2);
+							dtmDados.setValueAt(compra1.getFornecedor().getNome(), linha, 3);
+							dtmDados.setValueAt(compra1.getNota().getCodigo(), linha, 4);
+							dtmDados.setValueAt(compra1.getQuantidade(), linha, 5);
+							linha++;
+
+						}
+						dispose();
 					}
-					dispose();
-				}
-				if (aux == 1) {
-					JOptionPane.showMessageDialog(null, "Já existe um medicamento com esse número");
-				}
+					if (aux == 1) {
+						JOptionPane.showMessageDialog(null, "Já existe um medicamento com esse número");
+					}
 				}
 			}
 		});
-		
+
 		jbtSair.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {

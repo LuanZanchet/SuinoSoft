@@ -4,24 +4,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-
-import br.edu.unoesc.projetofinal.dao.LoteDAO;
-import br.edu.unoesc.projetofinal.dao.TarefaDAO;
-import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
-import br.edu.unoesc.projetofinal.model.Lote;
-import br.edu.unoesc.projetofinal.model.Tarefa;
-import br.edu.unoesc.projetofinal.model.Vacina;
 
 public class Ingrediente_Inclusao extends JFrame {
 
@@ -69,9 +57,5 @@ public class Ingrediente_Inclusao extends JFrame {
 		setLocationRelativeTo(null);
 		this.getContentPane().setBackground(Color.lightGray);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-	}
-
-	public static void main(String[] args) {
-		new Ingrediente_Inclusao();
 	}
 }

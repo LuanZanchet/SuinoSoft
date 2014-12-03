@@ -8,7 +8,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.swing.ButtonGroup;
@@ -28,7 +27,6 @@ import br.edu.unoesc.projetofinal.dao.NotaCompraDAO;
 import br.edu.unoesc.projetofinal.dao.RacaDAO;
 import br.edu.unoesc.projetofinal.dao.SemenDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
-import br.edu.unoesc.projetofinal.model.Animal;
 import br.edu.unoesc.projetofinal.model.Fornecedor;
 import br.edu.unoesc.projetofinal.model.Macho;
 import br.edu.unoesc.projetofinal.model.NotaCompra;
@@ -73,7 +71,7 @@ public class Macho_Edicao extends JFrame {
 	private SemenDAO semenDao = DaoFactory.get().semenDao();
 	private List machoSemen = new ArrayList<>();
 	private JTextField jtfGuardaValor = new JTextField();
-	private Semen semen=new Semen();
+	private Semen semen = new Semen();
 
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
@@ -227,7 +225,7 @@ public class Macho_Edicao extends JFrame {
 						}
 						if (aux == 0) {
 							Macho macho = new Macho();
-							macho=machoDao.listarTodos().get(Integer.valueOf(jtfGuardaValor.getText()));
+							macho = machoDao.listarTodos().get(Integer.valueOf(jtfGuardaValor.getText()));
 							macho.setMossa(Long.valueOf(jtfMossa.getText()));
 							macho.setBrinco(Long.valueOf(jtfBrinco.getText()));
 							macho.setNota(notaDao.listarTodos().get(jcbNotas.getSelectedIndex()));
@@ -307,8 +305,8 @@ public class Macho_Edicao extends JFrame {
 						for (Semen semen : semenDao.listarTodos()) {
 							if (semen.getBrinco().equals(Long.valueOf(jtfBrinco.getText()))) {
 								aux = 1;
-								if(semen.getBrinco().equals(semen.getBrinco())){
-									aux=0;
+								if (semen.getBrinco().equals(semen.getBrinco())) {
+									aux = 0;
 								}
 								break;
 							}

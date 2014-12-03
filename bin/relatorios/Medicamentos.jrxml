@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79a0a743-d62f-41b0-b71e-e9488571b459">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select idCompraMedicamento,dataCompra,idNota, fornecedor.idFornecedor,quantidade, vacina.nome from compraMedicamento join fornecedor using(idfornecedor) join vacina using(idvacina) ;]]>
+	</queryString>
+	<field name="idCompraMedicamento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataCompra" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idNota" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idFornecedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="143" y="-44" width="1244" height="123" uuid="98089b12-37b0-466a-922c-e5e1d66780f3"/>
+				<imageExpression><![CDATA["Relatorio.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="15" width="148" height="20" uuid="108bd0c1-4fe9-470a-b3eb-31f6244cbbcc"/>
+				<text><![CDATA[Lista de Medicamentos:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="21" width="34" height="20" uuid="29973f45-f246-4c24-b711-a59f068c5c5a"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="21" width="125" height="20" uuid="16c74390-10ed-4d5d-91cf-0eb0bed7b86a"/>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="21" width="100" height="20" uuid="373bebb3-c5ee-4cba-ac15-05bc9b27f2e1"/>
+				<text><![CDATA[dataCompra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="21" width="100" height="20" uuid="43df1d50-f60d-4162-bfa2-79c73edd43ac"/>
+				<text><![CDATA[Código nota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="466" y="21" width="92" height="18" uuid="c710afd2-565c-400c-b3dd-eecb138f5cf5"/>
+				<text><![CDATA[Código Fornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="585" y="21" width="100" height="20" uuid="cc6d2f17-7ec8-4f6f-9bae-395971031bad"/>
+				<text><![CDATA[quantidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="32" y="13" width="34" height="20" uuid="ea7f3581-32df-4d94-95a8-2e23fa7b9291"/>
+				<textFieldExpression><![CDATA[$F{idCompraMedicamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="13" width="125" height="20" uuid="a16e9710-99d7-4754-b4b1-06a5a010a81b"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="224" y="13" width="100" height="20" uuid="389bc636-89ca-4f81-b504-1c2e5471d870"/>
+				<textFieldExpression><![CDATA[$F{dataCompra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="13" width="100" height="20" uuid="9a5f3f18-5d26-4d7f-8eb7-7a93864a4e85"/>
+				<textFieldExpression><![CDATA[$F{idNota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="466" y="13" width="100" height="20" uuid="38a1cb57-2b06-42ae-8e9d-ec6e2bb5366b"/>
+				<textFieldExpression><![CDATA[$F{idFornecedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="585" y="13" width="100" height="20" uuid="787691c8-69f0-47c0-af3b-f2be6dff738b"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="685" y="13" width="100" height="20" uuid="b4f6fba0-4717-456f-bc4e-29350b191a44"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="685" y="34" width="100" height="20" uuid="772e120b-2741-4ead-ba79-8663b9ffaecc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="649" y="13" width="36" height="20" uuid="2948b4b6-d7c8-4c2f-b360-a76d81b9fa3e"/>
+				<text><![CDATA[Page :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="664" y="34" width="85" height="20" uuid="c9e1fa8d-adfd-412c-88dd-10ac352b623b"/>
+				<text><![CDATA[Of]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

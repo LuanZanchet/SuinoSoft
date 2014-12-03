@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79a0a743-d62f-41b0-b71e-e9488571b459">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from transferenciaentrelotes]]>
+	</queryString>
+	<field name="idTransferencia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idLoteOrigem" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idLoteDestino" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataTransferencia" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pesoTotal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="143" y="-44" width="1244" height="123" uuid="98089b12-37b0-466a-922c-e5e1d66780f3"/>
+				<imageExpression><![CDATA["Relatorio.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="45" y="20" width="184" height="20" uuid="108bd0c1-4fe9-470a-b3eb-31f6244cbbcc"/>
+				<text><![CDATA[Lista de Transferencia de lotes]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="36" y="2" width="100" height="20" uuid="57a082f8-841f-426e-bfac-2068b438183f"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="129" y="2" width="100" height="20" uuid="8967c50f-bfdd-4e36-8e22-b44dbe1da8e7"/>
+				<text><![CDATA[idLoteOrigem]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="229" y="2" width="100" height="20" uuid="359335f6-db82-4fbd-b1bf-8a2adfe210dd"/>
+				<text><![CDATA[idLoteDestino]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="4" width="100" height="20" uuid="35fa3355-8490-42e3-9c6e-462797b766b9"/>
+				<text><![CDATA[quantidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="2" width="100" height="20" uuid="a2508913-f35f-475a-a8cb-6cb759381d9e"/>
+				<text><![CDATA[dataTransferencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="508" y="2" width="100" height="20" uuid="8d62a6c0-6c83-4320-99f0-924f4a4c7115"/>
+				<text><![CDATA[pesoTotal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="36" y="6" width="100" height="20" uuid="0a1d2ccd-df3c-4a84-8f5d-6dbbc4fc649f"/>
+				<textFieldExpression><![CDATA[$F{idTransferencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="6" width="100" height="20" uuid="7d7ffec0-fd16-4a2a-933a-b3cb1e515f01"/>
+				<textFieldExpression><![CDATA[$F{idLoteOrigem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="6" width="100" height="20" uuid="c3749b53-1bec-4e13-917a-93e830ff32dd"/>
+				<textFieldExpression><![CDATA[$F{idLoteDestino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="6" width="100" height="20" uuid="c9708768-1aee-4a55-9b38-9014961959d5"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="408" y="6" width="100" height="20" uuid="da5248f0-7955-4bc9-9e40-59268097e33f"/>
+				<textFieldExpression><![CDATA[$F{dataTransferencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="6" width="100" height="20" uuid="991e6196-315a-40ea-add7-72048140461b"/>
+				<textFieldExpression><![CDATA[$F{pesoTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="685" y="13" width="100" height="20" uuid="b4f6fba0-4717-456f-bc4e-29350b191a44"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="685" y="34" width="100" height="20" uuid="772e120b-2741-4ead-ba79-8663b9ffaecc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="649" y="13" width="36" height="20" uuid="2948b4b6-d7c8-4c2f-b360-a76d81b9fa3e"/>
+				<text><![CDATA[Page :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="664" y="34" width="85" height="20" uuid="c9e1fa8d-adfd-412c-88dd-10ac352b623b"/>
+				<text><![CDATA[Of]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

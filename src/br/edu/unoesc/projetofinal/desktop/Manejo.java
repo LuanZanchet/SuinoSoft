@@ -1666,8 +1666,4 @@ public class Manejo extends JFrame {
 		jtrMorteLeitaoCreche.setSelectionInterval(-1, -1);
 		jtrVendaLeitao.setSelectionInterval(-1, -1);
 	}
-
-	public static void main(String[] args) {
-		new Manejo();
-	}
 }

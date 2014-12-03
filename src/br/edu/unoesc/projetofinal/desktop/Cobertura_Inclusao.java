@@ -282,8 +282,4 @@ public class Cobertura_Inclusao extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
-
-	public static void main(String[] args) {
-		new Cobertura_Inclusao();
-	}
 }

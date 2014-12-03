@@ -104,13 +104,15 @@ public class DadosGranja extends JFrame {
 	private Proprietario proprietario;
 	private Endereco endereco;
 	private Granja granja;
-	private JTree jtrComprador=new JTree(new DefaultMutableTreeNode("Comprador"));
+	private JTree jtrComprador = new JTree(new DefaultMutableTreeNode("Comprador"));
+
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);
 	}
-	private CompradorDAO compradorDao=DaoFactory.get().compradorDao();
-	
+
+	private CompradorDAO compradorDao = DaoFactory.get().compradorDao();
+
 	public DadosGranja() {
 		setLayout(null);
 
@@ -279,7 +281,7 @@ public class DadosGranja extends JFrame {
 		posicionaObjeto(jtrFuncionario, 60, 310, 190, 25);
 		posicionaObjeto(jtrFornecedor, 60, 340, 190, 25);
 		posicionaObjeto(jtrComprador, 60, 370, 190, 25);
-		
+
 		scpRolagem.setBounds(250, 170, 1100, 500);
 		jtbDados.setModel(dtmDados);
 		scpRolagem.add(jtbDados);
@@ -311,12 +313,12 @@ public class DadosGranja extends JFrame {
 				if (auxTela == 1) {
 					new TarefasGranja_Inclusao(dtmDados);
 				}
-				if(jtrComprador.isRowSelected(0)){
+				if (jtrComprador.isRowSelected(0)) {
 					new Comprador_Inclusao(dtmDados);
 				}
 			}
 		});
-		
+
 		jbtEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (jtrRaca.isRowSelected(0)) {
@@ -379,16 +381,14 @@ public class DadosGranja extends JFrame {
 						tela.setValor(jtbDados.getSelectedRow() - 1);
 					}
 				}
-				if(jtrComprador.isRowSelected(0)){
-					if(jtbDados.getSelectedRow()==-1){
+				if (jtrComprador.isRowSelected(0)) {
+					if (jtbDados.getSelectedRow() == -1) {
 						JOptionPane.showMessageDialog(null, "Selecione o comprador que deseja editar");
-					}
-					else if(jtbDados.getSelectedRow()==0){
+					} else if (jtbDados.getSelectedRow() == 0) {
 						JOptionPane.showMessageDialog(null, "Não pode editar essa Linha");
-					}
-					else{
-						Comprador_Edicao tela=new Comprador_Edicao(dtmDados);
-						tela.setValor(jtbDados.getSelectedRow()-1);
+					} else {
+						Comprador_Edicao tela = new Comprador_Edicao(dtmDados);
+						tela.setValor(jtbDados.getSelectedRow() - 1);
 					}
 				}
 				if (auxTela == 1) {
@@ -567,7 +567,7 @@ public class DadosGranja extends JFrame {
 										"Operação não permitida. Existem outras operações que utilizam esta causa");
 							}
 						}
-						
+
 						if (jtrFuncionario.isRowSelected(0)) {
 							int aux = 0;
 							for (Parto parto : partoDao.listarTodos()) {
@@ -602,53 +602,53 @@ public class DadosGranja extends JFrame {
 				}
 			}
 		});
-		
+
 		jbtPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Integer aux=0;
-				if(jtrRaca.isRowSelected(0)){
-					aux=1;
-					Pesquisar tela = new Pesquisar(jtbDados);
-					tela.setValor(aux);			
-				}
-				if(jtrLote.isRowSelected(0)){
-					aux=2;
+				Integer aux = 0;
+				if (jtrRaca.isRowSelected(0)) {
+					aux = 1;
 					Pesquisar tela = new Pesquisar(jtbDados);
 					tela.setValor(aux);
 				}
-				if(jtrVacina.isRowSelected(0)){
-					aux=3;
+				if (jtrLote.isRowSelected(0)) {
+					aux = 2;
 					Pesquisar tela = new Pesquisar(jtbDados);
 					tela.setValor(aux);
 				}
-				if(jtrCausa.isRowSelected(0)){
-					aux=4;
+				if (jtrVacina.isRowSelected(0)) {
+					aux = 3;
 					Pesquisar tela = new Pesquisar(jtbDados);
 					tela.setValor(aux);
 				}
-				if(jtrFuncionario.isRowSelected(0)){
-					aux=5;
+				if (jtrCausa.isRowSelected(0)) {
+					aux = 4;
 					Pesquisar tela = new Pesquisar(jtbDados);
 					tela.setValor(aux);
 				}
-				if(jtrFornecedor.isRowSelected(0)){
-					aux=6;
+				if (jtrFuncionario.isRowSelected(0)) {
+					aux = 5;
 					Pesquisar tela = new Pesquisar(jtbDados);
 					tela.setValor(aux);
 				}
-				if(auxTela==1){
-					aux=7;
-					Pesquisar tela=new Pesquisar(jtbDados);
+				if (jtrFornecedor.isRowSelected(0)) {
+					aux = 6;
+					Pesquisar tela = new Pesquisar(jtbDados);
 					tela.setValor(aux);
 				}
-				if(jtrComprador.isRowSelected(0)){
-					aux=8;
-					Pesquisar tela=new Pesquisar(jtbDados);
+				if (auxTela == 1) {
+					aux = 7;
+					Pesquisar tela = new Pesquisar(jtbDados);
+					tela.setValor(aux);
+				}
+				if (jtrComprador.isRowSelected(0)) {
+					aux = 8;
+					Pesquisar tela = new Pesquisar(jtbDados);
 					tela.setValor(aux);
 				}
 			}
 		});
-		
+
 		jbtSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(EXIT_ON_CLOSE);
@@ -656,11 +656,9 @@ public class DadosGranja extends JFrame {
 			}
 		});
 
-		
-
 		jbtCadastros.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				auxTela=0;
+				auxTela = 0;
 				jtrCausa.setSelectionInterval(-1, -1);
 				jtrComprador.setSelectionInterval(-1, -1);
 				jtrFornecedor.setSelectionInterval(-1, -1);
@@ -693,9 +691,9 @@ public class DadosGranja extends JFrame {
 
 		jbtConfiguracoes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				granja=granjaDao.get(1);
-				proprietario=proprietarioDao.get(1);
-				endereco=enderecoDao.get(1);
+				granja = granjaDao.get(1);
+				proprietario = proprietarioDao.get(1);
+				endereco = enderecoDao.get(1);
 				jtfUF.setText(endereco.getUf());
 				jtfCidade.setText(endereco.getCidade());
 				jtfProprietario.setText(proprietario.getNome());
@@ -868,7 +866,7 @@ public class DadosGranja extends JFrame {
 						dtmDados.setValueAt(fornecedor.getTelefone(), linha, 5);
 						linha++;
 					}
-					
+
 				}
 				if (arg0.getClickCount() == 2) {
 					new Fornecedor_Inclusao(dtmDados);
@@ -977,10 +975,10 @@ public class DadosGranja extends JFrame {
 				}
 			}
 		});
-		
+
 		jtrComprador.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent arg0) {
-				if(arg0.getClickCount()==1){
+				if (arg0.getClickCount() == 1) {
 					jtrCausa.setSelectionInterval(-1, -1);
 					jtrFornecedor.setSelectionInterval(-1, -1);
 					jtrFuncionario.setSelectionInterval(-1, -1);
@@ -1000,18 +998,19 @@ public class DadosGranja extends JFrame {
 					dtmDados.setValueAt("Endereco", 0, 4);
 					dtmDados.setValueAt("Telefone", 0, 5);
 					linha = 1;
-					for(Comprador comprador:compradorDao.listarTodos()){
-						dtmDados.setRowCount(dtmDados.getRowCount()+1);
+					for (Comprador comprador : compradorDao.listarTodos()) {
+						dtmDados.setRowCount(dtmDados.getRowCount() + 1);
 						dtmDados.setValueAt(comprador.getCodigo(), linha, 0);
 						dtmDados.setValueAt(comprador.getNome(), linha, 1);
 						dtmDados.setValueAt(comprador.getTipo(), linha, 2);
 						dtmDados.setValueAt(comprador.getCpfCnpj(), linha, 3);
-						dtmDados.setValueAt(comprador.getEndereco().getCidade()+"/"+comprador.getEndereco().getUf(), linha, 4);
+						dtmDados.setValueAt(
+								comprador.getEndereco().getCidade() + "/" + comprador.getEndereco().getUf(), linha, 4);
 						dtmDados.setValueAt(comprador.getTelefone(), linha, 5);
 						linha++;
 					}
 				}
-				if(arg0.getClickCount()==2){
+				if (arg0.getClickCount() == 2) {
 					new Comprador_Inclusao(dtmDados);
 				}
 			}

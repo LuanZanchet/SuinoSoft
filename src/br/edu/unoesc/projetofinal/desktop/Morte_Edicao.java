@@ -20,14 +20,10 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import br.edu.unoesc.projetofinal.dao.CausaDAO;
-import br.edu.unoesc.projetofinal.dao.MachoDAO;
-import br.edu.unoesc.projetofinal.dao.MatrizDAO;
 import br.edu.unoesc.projetofinal.dao.MorteMachoDAO;
 import br.edu.unoesc.projetofinal.dao.MorteMatrizDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
 import br.edu.unoesc.projetofinal.model.Causa;
-import br.edu.unoesc.projetofinal.model.Macho;
-import br.edu.unoesc.projetofinal.model.Matriz;
 import br.edu.unoesc.projetofinal.model.MorteMacho;
 import br.edu.unoesc.projetofinal.model.MorteMatriz;
 

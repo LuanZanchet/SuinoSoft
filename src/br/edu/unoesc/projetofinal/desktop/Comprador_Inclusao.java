@@ -173,8 +173,4 @@ public class Comprador_Inclusao extends JFrame {
 		this.getContentPane().setBackground(Color.lightGray);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
-
-	public static void main(String[] args) {
-		new Comprador_Inclusao(null);
-	}
 }

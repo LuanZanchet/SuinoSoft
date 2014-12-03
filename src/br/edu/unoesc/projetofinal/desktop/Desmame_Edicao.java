@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.sql.Date;
 
 import javax.swing.JButton;
@@ -19,11 +18,9 @@ import javax.swing.table.DefaultTableModel;
 
 import br.edu.unoesc.projetofinal.dao.DesmameDAO;
 import br.edu.unoesc.projetofinal.dao.LoteDAO;
-import br.edu.unoesc.projetofinal.dao.MatrizDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
 import br.edu.unoesc.projetofinal.model.Desmame;
 import br.edu.unoesc.projetofinal.model.Lote;
-import br.edu.unoesc.projetofinal.model.Matriz;
 
 public class Desmame_Edicao extends JFrame {
 	private JLabel jlbDesmame = new JLabel(" Inclusão de Desmame");
@@ -54,13 +51,11 @@ public class Desmame_Edicao extends JFrame {
 	private JTextField jtfDoados = new JTextField();
 	private JButton jbtCadastrar = new JButton("Cadastrar");
 	private JButton jbtSair = new JButton("Sair");
-	private MatrizDAO matrizDao = DaoFactory.get().matrizDao();
 	private DesmameDAO desmameDao = DaoFactory.get().desmameDao();
 	private Desmame desmame = new Desmame();
 	private LoteDAO loteDao = DaoFactory.get().loteDao();
-	private Integer aux = 0;
-	private JTextField jtfGuardaValor=new JTextField();
-	
+	private JTextField jtfGuardaValor = new JTextField();
+
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);
@@ -77,12 +72,12 @@ public class Desmame_Edicao extends JFrame {
 		jtfObsLote.setText(desmameDao.listarTodos().get(posicao).getObsLote());
 		jtfObsDesmame.setText(desmameDao.listarTodos().get(posicao).getObsDesmame());
 		jtfVivos.setText(desmameDao.listarTodos().get(posicao).getQuantidade().toString());
-		desmame=desmameDao.listarTodos().get(Integer.valueOf(posicao));
+		desmame = desmameDao.listarTodos().get(Integer.valueOf(posicao));
 	}
 
 	public Desmame_Edicao(final DefaultTableModel dtmDados) {
 		setLayout(null);
-		
+
 		jtfMatriz.setEditable(false);
 
 		jlbDesmame.setFont(new Font("Arial", Font.BOLD, 18));
@@ -131,9 +126,10 @@ public class Desmame_Edicao extends JFrame {
 					for (Lote lote : loteDao.listarTodos()) {
 						if (lote.getNumero().equals(Long.valueOf(jtfLote.getText()))) {
 							auxiliar = 1;
-							Lote loteReposicao=new Lote();
-							loteReposicao=desmame.getLote();
-							loteReposicao.setQuantidadeLeitao(loteReposicao.getQuantidadeLeitao()-desmame.getQuantidade());
+							Lote loteReposicao = new Lote();
+							loteReposicao = desmame.getLote();
+							loteReposicao.setQuantidadeLeitao(loteReposicao.getQuantidadeLeitao()
+									- desmame.getQuantidade());
 							loteDao.alter(loteReposicao);
 							desmame.setLote(lote);
 							break;

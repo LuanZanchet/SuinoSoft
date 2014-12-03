@@ -1,4 +1,5 @@
 package br.edu.unoesc.projetofinal.desktop;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -35,16 +36,19 @@ public class Aborto_Edicao extends JFrame {
 	private Aborto aborto = new Aborto();
 	private MatrizDAO matrizDao = DaoFactory.get().matrizDao();
 	private JTextField jtfArmazenaValor = new JTextField();
+
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);
 	}
+
 	public void setValor(Integer posicao) {
 		jtfMatriz.setText(abortoDao.listarTodos().get(posicao).getMatriz().getCodigo().toString());
 		jtfData.setText(abortoDao.listarTodos().get(posicao).getData().toString());
 		jtfObservacao.setText(abortoDao.listarTodos().get(posicao).getObservacao());
 		jtfArmazenaValor.setText(posicao.toString());
 	}
+
 	public Aborto_Edicao(final DefaultTableModel dtmDados) {
 		setLayout(null);
 		jlbAborto.setFont(new Font("Arial", Font.BOLD, 18));
@@ -58,9 +62,9 @@ public class Aborto_Edicao extends JFrame {
 		posicionaObjeto(jtfObservacao, 130, 135, 200, 25);
 		posicionaObjeto(jbtCadastrar, 50, 195, 150, 35);
 		posicionaObjeto(jbtSair, 220, 195, 120, 20);
-		
+
 		jtfMatriz.setEditable(false);
-		
+
 		jtfMatriz.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent arg0) {
 				if (arg0.getKeyCode() == KeyEvent.VK_ENTER) {

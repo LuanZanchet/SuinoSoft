@@ -43,25 +43,25 @@ public class Descarte_Edicao extends JFrame {
 	private DescarteMatrizDAO descarteMatrizDao = DaoFactory.get().descarteMatrizDao();
 	private DescarteMatriz descarteMatriz = new DescarteMatriz();
 	private DescarteMacho descarteMacho = new DescarteMacho();
-	private List descarteMachoDescarteMatriz=new ArrayList();
+	private List descarteMachoDescarteMatriz = new ArrayList();
 
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);
 	}
-	
-	public void setValor(Integer posicao){
+
+	public void setValor(Integer posicao) {
 		descarteMachoDescarteMatriz.addAll(descarteMachoDao.listarTodos());
 		descarteMachoDescarteMatriz.addAll(descarteMatrizDao.listarTodos());
-		
-		if(descarteMachoDescarteMatriz.get(posicao) instanceof DescarteMacho){
+
+		if (descarteMachoDescarteMatriz.get(posicao) instanceof DescarteMacho) {
 			descarteMacho = (DescarteMacho) descarteMachoDescarteMatriz.get(posicao);
 			jrbMacho.setSelected(true);
 			jtfBrinco.setText(descarteMacho.getMacho().getBrinco().toString());
 			jtfData.setText(descarteMacho.getData().toString());
 			jcbCausas.setSelectedItem(descarteMacho.getCausa().getNome());
 		}
-		if(descarteMachoDescarteMatriz.get(posicao) instanceof DescarteMatriz){
+		if (descarteMachoDescarteMatriz.get(posicao) instanceof DescarteMatriz) {
 			descarteMatriz = (DescarteMatriz) descarteMachoDescarteMatriz.get(posicao);
 			jrbFemea.setSelected(true);
 			jtfBrinco.setText(descarteMatriz.getMatriz().getBrinco().toString());
@@ -69,7 +69,7 @@ public class Descarte_Edicao extends JFrame {
 			jcbCausas.setSelectedItem(descarteMatriz.getCausa().getNome());
 		}
 	}
-	
+
 	public Descarte_Edicao(final DefaultTableModel dtmDados) {
 		setLayout(null);
 
@@ -154,9 +154,9 @@ public class Descarte_Edicao extends JFrame {
 
 			}
 		});
-		
+
 		jtfBrinco.setEditable(false);
-		
+
 		setTitle("Descarte Inclusao");
 		setSize(500, 300);
 		setVisible(true);

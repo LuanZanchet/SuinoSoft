@@ -57,8 +57,6 @@ public class Desmame_Inclusao extends JFrame {
 	private DesmameDAO desmameDao = DaoFactory.get().desmameDao();
 	private Desmame desmame = new Desmame();
 	private LoteDAO loteDao = DaoFactory.get().loteDao();
-	private Integer aux = 0;
-
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);

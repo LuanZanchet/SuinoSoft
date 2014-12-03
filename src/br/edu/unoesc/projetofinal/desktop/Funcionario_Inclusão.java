@@ -24,16 +24,15 @@ public class Funcionario_Inclusão extends JFrame {
 	private JLabel jlbNome = new JLabel("Nome ");
 	private JLabel jlbSalario = new JLabel("Salario ");
 	private JLabel jlbInfGranja = new JLabel("Cadastra Funcionario");
-	private JButton jbtCadastrarFuncionario = new JButton("Cadastrar"),
-			jbtSair = new JButton("Sair");
-	private FuncionarioDAO funcionarioDao=DaoFactory.get().funcionarioDao();
-	
+	private JButton jbtCadastrarFuncionario = new JButton("Cadastrar"), jbtSair = new JButton("Sair");
+	private FuncionarioDAO funcionarioDao = DaoFactory.get().funcionarioDao();
+
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);
 	}
 
-	public Funcionario_Inclusão( final DefaultTableModel dtmDados) {
+	public Funcionario_Inclusão(final DefaultTableModel dtmDados) {
 		setLayout(null);
 
 		jlbInfGranja.setFont(new Font("Arial", Font.BOLD, 24));
@@ -47,27 +46,26 @@ public class Funcionario_Inclusão extends JFrame {
 
 		posicionaObjeto(jbtCadastrarFuncionario, 125, 175, 100, 30);
 		posicionaObjeto(jbtSair, 285, 175, 80, 20);
-		
+
 		jbtCadastrarFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(jtfNomeFunci.getText().isEmpty()||jtfSalarioFunci.getText().isEmpty()){
-					if(jtfNomeFunci.getText().isEmpty()){
+				if (jtfNomeFunci.getText().isEmpty() || jtfSalarioFunci.getText().isEmpty()) {
+					if (jtfNomeFunci.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Digite o nome do Funcionário!");
 					}
-					if(jtfSalarioFunci.getText().isEmpty()){
+					if (jtfSalarioFunci.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Digite o Salário do Funcionário");
 					}
-				}
-				else{
-					Funcionario funcionario=new Funcionario();
+				} else {
+					Funcionario funcionario = new Funcionario();
 					funcionario.setNome(jtfNomeFunci.getText());
 					funcionario.setSalario(Double.valueOf(jtfSalarioFunci.getText()));
 					funcionarioDao.store(funcionario);
 					JOptionPane.showMessageDialog(null, "Funcionário cadastrado com Sucesso!");
-					int linha=1;
+					int linha = 1;
 					dtmDados.setRowCount(1);
-					for(Funcionario funcionario1:funcionarioDao.listarTodos()){
-						dtmDados.setRowCount(dtmDados.getRowCount()+1);
+					for (Funcionario funcionario1 : funcionarioDao.listarTodos()) {
+						dtmDados.setRowCount(dtmDados.getRowCount() + 1);
 						dtmDados.setValueAt(funcionario1.getCodigo(), linha, 0);
 						dtmDados.setValueAt(funcionario1.getNome(), linha, 1);
 						dtmDados.setValueAt(funcionario1.getSalario(), linha, 2);
@@ -77,7 +75,7 @@ public class Funcionario_Inclusão extends JFrame {
 				}
 			}
 		});
-		
+
 		jbtSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();

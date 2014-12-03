@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79a0a743-d62f-41b0-b71e-e9488571b459">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="375"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from matriz]]>
+	</queryString>
+	<field name="idMatriz" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mossa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="brinco" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idNota" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataEntrada" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataNascimento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="peso" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idRaca" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idFornecedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="observacao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statusAtual" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tetasDireitas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tetasEsquerdas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeroCiclos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="143" y="-44" width="1244" height="123" uuid="98089b12-37b0-466a-922c-e5e1d66780f3"/>
+				<imageExpression><![CDATA["Relatorio.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="15" width="167" height="20" uuid="108bd0c1-4fe9-470a-b3eb-31f6244cbbcc"/>
+				<text><![CDATA[Lista de Fêmeas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="2" width="100" height="20" uuid="03fcd306-7874-4406-9f59-59e000ec7d72"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="2" width="100" height="20" uuid="11ec5037-9c2a-4765-9786-5119e3ea7db9"/>
+				<text><![CDATA[mossa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="2" width="100" height="20" uuid="f45f7222-c3d8-4bd2-9389-e9f0d4b4e276"/>
+				<text><![CDATA[brinco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="2" width="100" height="20" uuid="aa1fc278-e25a-4cf3-b1a1-b3805fd15aab"/>
+				<text><![CDATA[idNota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="2" width="100" height="20" uuid="d0e1fd35-d5c5-4d52-b4fb-5634c4ac5c12"/>
+				<text><![CDATA[dataEntrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="2" width="100" height="20" uuid="41c1068d-31ad-4a45-8ef5-b10d7453ce8d"/>
+				<text><![CDATA[dataNascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="479" y="2" width="100" height="20" uuid="e0fae276-5365-465b-be0d-12b6e218b3ed"/>
+				<text><![CDATA[peso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="535" y="2" width="100" height="20" uuid="3f4dfaed-2bf9-4821-a29c-d7cd1960892e"/>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="597" y="2" width="100" height="20" uuid="93a05d67-51c1-4e5f-a3bc-48c847025efe"/>
+				<text><![CDATA[idFornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="685" y="2" width="100" height="20" uuid="2714efe5-0c25-413a-a6ca-399fde2ad307"/>
+				<text><![CDATA[idade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="749" y="2" width="100" height="20" uuid="a47374a1-b3ee-4cc6-b673-e30508a99f04"/>
+				<text><![CDATA[idRaca]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="8" y="10" width="100" height="20" uuid="41e34ef4-6ee2-4cfb-bb63-7f75a1cc4279"/>
+				<textFieldExpression><![CDATA[$F{idMatriz}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="10" width="100" height="20" uuid="461b3054-f49f-47de-bf79-c34b9f389764"/>
+				<textFieldExpression><![CDATA[$F{mossa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="10" width="100" height="20" uuid="dc4d8b32-d910-4380-aea4-41dd32573eb7"/>
+				<textFieldExpression><![CDATA[$F{brinco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="10" width="100" height="20" uuid="cb5b6b33-c914-4f69-b8a4-f61485922877"/>
+				<textFieldExpression><![CDATA[$F{idNota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="10" width="100" height="20" uuid="946c733e-8157-4c53-953e-65412f770675"/>
+				<textFieldExpression><![CDATA[$F{dataEntrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="10" width="100" height="20" uuid="eccea18f-6075-48ce-8d02-f04e2d2741f6"/>
+				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="10" width="100" height="20" uuid="1a5bb8c3-0585-4007-8228-55d135faea58"/>
+				<textFieldExpression><![CDATA[$F{peso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="535" y="10" width="100" height="20" uuid="5a5e3640-bcee-418a-9796-584b7fb87ae7"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="597" y="10" width="100" height="20" uuid="e9b6d863-dddf-469b-aa2c-7ab64be01369"/>
+				<textFieldExpression><![CDATA[$F{idFornecedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="685" y="10" width="100" height="20" uuid="6f4c3ae4-8987-4f5b-a223-d10782e5c595"/>
+				<textFieldExpression><![CDATA[$F{idade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="749" y="10" width="100" height="20" uuid="068f9d7a-7d5f-425b-9227-7b2da0cb69d1"/>
+				<textFieldExpression><![CDATA[$F{idRaca}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="685" y="13" width="100" height="20" uuid="b4f6fba0-4717-456f-bc4e-29350b191a44"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="685" y="34" width="100" height="20" uuid="772e120b-2741-4ead-ba79-8663b9ffaecc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="649" y="13" width="36" height="20" uuid="2948b4b6-d7c8-4c2f-b360-a76d81b9fa3e"/>
+				<text><![CDATA[Page :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="664" y="34" width="85" height="20" uuid="c9e1fa8d-adfd-412c-88dd-10ac352b623b"/>
+				<text><![CDATA[Of]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

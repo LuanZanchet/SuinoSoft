@@ -14,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.stream.events.NotationDeclaration;
 
 import br.edu.unoesc.projetofinal.dao.CompraRacaoDAO;
 import br.edu.unoesc.projetofinal.dao.FornecedorDAO;
@@ -24,7 +23,6 @@ import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
 import br.edu.unoesc.projetofinal.model.CompraRacao;
 import br.edu.unoesc.projetofinal.model.Fornecedor;
 import br.edu.unoesc.projetofinal.model.Nota;
-import br.edu.unoesc.projetofinal.model.NotaCompra;
 import br.edu.unoesc.projetofinal.model.Racao;
 
 public class CompraRacao_Inclusao extends JFrame {
@@ -167,11 +165,4 @@ public class CompraRacao_Inclusao extends JFrame {
 		this.getContentPane().setBackground(Color.lightGray);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
-
-	
-	public static void main(String[] args) {
-		new CompraRacao_Inclusao(null);
-	}
-	
-
 }

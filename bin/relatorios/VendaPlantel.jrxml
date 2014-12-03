@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79a0a743-d62f-41b0-b71e-e9488571b459">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="273"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select idVendaLeitao ,
+	dataVenda ,
+	valor,
+	Comprador.nome,
+	gta,
+	idNota ,
+	pesoTotal,
+	pesoMedio ,
+	idLote ,
+	quantidade from vendaleitao join comprador using(idcomprador);]]>
+	</queryString>
+	<field name="idVendaLeitao" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataVenda" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gta" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idNota" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pesoTotal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pesoMedio" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idLote" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="143" y="-44" width="1244" height="123" uuid="98089b12-37b0-466a-922c-e5e1d66780f3"/>
+				<imageExpression><![CDATA["Relatorio.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="15" width="167" height="20" uuid="108bd0c1-4fe9-470a-b3eb-31f6244cbbcc"/>
+				<text><![CDATA[Lista de Venda do Plantel]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="1" width="100" height="20" uuid="afdc1ae8-45c4-429d-b6a0-8dfaad7f36af"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="1" width="100" height="20" uuid="98e8d8c9-c6d1-4a12-bdca-19b00fdceb57"/>
+				<text><![CDATA[Comprador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="1" width="100" height="20" uuid="7031e03f-8c74-41a7-82ad-f2f836d0f58d"/>
+				<text><![CDATA[dataVenda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="1" width="100" height="20" uuid="228f81c7-708f-4860-93e4-388796f6822b"/>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="1" width="100" height="20" uuid="d5393b5e-aa92-421a-9b05-51f948132bda"/>
+				<text><![CDATA[gta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="391" y="1" width="100" height="20" uuid="8152d055-8ea8-43e5-83c8-f2a3a22b8bab"/>
+				<text><![CDATA[idNota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="1" width="100" height="20" uuid="4dfa5308-5f99-4d48-80bb-0cefddde105c"/>
+				<text><![CDATA[pesoTotal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="549" y="1" width="100" height="20" uuid="e2420d34-1bce-41e0-a01a-b1ea15dd0b33"/>
+				<text><![CDATA[pesoMedio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="1" width="100" height="20" uuid="28717646-ed9d-4a40-924d-221bd691754d"/>
+				<text><![CDATA[idLote]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="1" width="100" height="20" uuid="8a7a0182-b655-4b1a-91a8-f228cba23893"/>
+				<text><![CDATA[quantidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="6" width="100" height="20" uuid="99409956-d1c0-4612-8509-478c9f8ed3a6"/>
+				<textFieldExpression><![CDATA[$F{idVendaLeitao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="74" y="6" width="100" height="20" uuid="2147d048-71fe-479a-8204-2f2693c14524"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="6" width="100" height="20" uuid="7f4542ce-0b92-4bb2-8d91-bc1ddd1a0c73"/>
+				<textFieldExpression><![CDATA[$F{dataVenda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="6" width="100" height="20" uuid="1b267676-9b04-4fa9-981a-86b0cff916cd"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="6" width="100" height="20" uuid="adc2a021-ae30-4cd6-85bc-10382af33cdf"/>
+				<textFieldExpression><![CDATA[$F{gta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="391" y="6" width="100" height="20" uuid="73d3922b-f164-4fb5-a4c5-a142b2d27ab9"/>
+				<textFieldExpression><![CDATA[$F{idNota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="6" width="100" height="20" uuid="e3250a2d-4462-499e-8e7f-64a4df90e6bf"/>
+				<textFieldExpression><![CDATA[$F{pesoTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="549" y="6" width="100" height="20" uuid="5e426039-c5cb-4a80-8c87-1722d462593d"/>
+				<textFieldExpression><![CDATA[$F{pesoMedio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="632" y="6" width="100" height="20" uuid="a2fddaea-1e82-425f-9599-829c4b28b874"/>
+				<textFieldExpression><![CDATA[$F{idLote}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="702" y="6" width="100" height="20" uuid="55b67889-1fa8-4783-9a89-75f374b2f975"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="685" y="13" width="100" height="20" uuid="b4f6fba0-4717-456f-bc4e-29350b191a44"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="685" y="34" width="100" height="20" uuid="772e120b-2741-4ead-ba79-8663b9ffaecc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="649" y="13" width="36" height="20" uuid="2948b4b6-d7c8-4c2f-b360-a76d81b9fa3e"/>
+				<text><![CDATA[Page :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="664" y="34" width="85" height="20" uuid="c9e1fa8d-adfd-412c-88dd-10ac352b623b"/>
+				<text><![CDATA[Of]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

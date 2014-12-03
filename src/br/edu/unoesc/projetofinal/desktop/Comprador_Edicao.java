@@ -42,23 +42,23 @@ public class Comprador_Edicao extends JFrame {
 	private JButton jbtCadastrarFornCli = new JButton("Editar"), jbtSair = new JButton("Sair");
 	private CompradorDAO compradorDao = DaoFactory.get().compradorDao();
 	private EnderecoDAO enderecoDao = DaoFactory.get().enderecoDao();
-	private JTextField jtfGuardaValor=new JTextField();
-	
+	private JTextField jtfGuardaValor = new JTextField();
+
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);
 	}
-	
-	public void setValor(Integer posicao){
+
+	public void setValor(Integer posicao) {
 		jtfNomeFornCli.setText(compradorDao.listarTodos().get(posicao).getNome());
 		jtfCpfCnpjForCLi.setText(compradorDao.listarTodos().get(posicao).getCpfCnpj().toString());
 		jtfTelFornCli.setText(compradorDao.listarTodos().get(posicao).getTelefone().toString());
 		jtfEnderecoFornCli.setText(compradorDao.listarTodos().get(posicao).getEndereco().getCidade());
 		jtfEstado.setText(compradorDao.listarTodos().get(posicao).getEndereco().getUf());
-		if(compradorDao.listarTodos().get(posicao).getTipo().equals("Pessoa Jurídica")){
+		if (compradorDao.listarTodos().get(posicao).getTipo().equals("Pessoa Jurídica")) {
 			jrbPessoaJuridica.setSelected(true);
 		}
-		if(compradorDao.listarTodos().get(posicao).getTipo().equals("Pessoa Física")){
+		if (compradorDao.listarTodos().get(posicao).getTipo().equals("Pessoa Física")) {
 			jrbPessoaFisica.setSelected(true);
 		}
 		jtfGuardaValor.setText(posicao.toString());
@@ -112,15 +112,18 @@ public class Comprador_Edicao extends JFrame {
 					for (Comprador comprador : compradorDao.listarTodos()) {
 						if (comprador.getNome().equalsIgnoreCase(jtfNomeFornCli.getText())) {
 							aux = 1;
-							if(comprador.getNome().equalsIgnoreCase(compradorDao.listarTodos().get(Integer.valueOf(jtfGuardaValor.getText())).getNome())){
-								aux=0;
+							if (comprador.getNome()
+									.equalsIgnoreCase(
+											compradorDao.listarTodos().get(Integer.valueOf(jtfGuardaValor.getText()))
+													.getNome())) {
+								aux = 0;
 							}
 							break;
 						}
 					}
 					if (aux == 0) {
 						Comprador comprador = new Comprador();
-						comprador=compradorDao.listarTodos().get(Integer.valueOf(jtfGuardaValor.getText()));
+						comprador = compradorDao.listarTodos().get(Integer.valueOf(jtfGuardaValor.getText()));
 						comprador.setNome(jtfNomeFornCli.getText());
 						if (jrbPessoaFisica.isSelected()) {
 							comprador.setTipo("Pessoa Física");

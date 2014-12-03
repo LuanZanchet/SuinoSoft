@@ -15,9 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.JTree;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.tree.DefaultMutableTreeNode;
 
 import br.edu.unoesc.projetofinal.dao.EnderecoDAO;
 import br.edu.unoesc.projetofinal.dao.FornecedorDAO;
