@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79a0a743-d62f-41b0-b71e-e9488571b459">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select*from movimentacaoleitao]]>
+	</queryString>
+	<field name="idMovimentacaoLeitao" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idMatrizDoadora" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idMatrizReceptora" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataMovimentacao" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="143" y="-44" width="1244" height="123" uuid="98089b12-37b0-466a-922c-e5e1d66780f3"/>
+				<imageExpression><![CDATA["Relatorio.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="15" width="167" height="20" uuid="108bd0c1-4fe9-470a-b3eb-31f6244cbbcc"/>
+				<text><![CDATA[Lista de Movimentação de Leitão]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="36" y="0" width="100" height="20" uuid="b4a4ba17-0bf1-41a2-9e0d-d9e204134fe8"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="0" width="100" height="20" uuid="d1394c1f-93f0-472a-951d-f60d21393a57"/>
+				<text><![CDATA[idMatrizDoadora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="1" width="100" height="20" uuid="2bc643db-41ac-411f-8bd4-cac5d8725769"/>
+				<text><![CDATA[idMatrizReceptora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="1" width="100" height="20" uuid="9b23767a-2c38-4caf-89bd-af240b252d8f"/>
+				<text><![CDATA[dataMovimentacao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="1" width="100" height="20" uuid="4f048fd1-22cb-4908-9052-d9950a048f0e"/>
+				<text><![CDATA[quantidade]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="36" y="6" width="100" height="20" uuid="18fc4331-7967-4197-bb6c-a01168082d1d"/>
+				<textFieldExpression><![CDATA[$F{idMovimentacaoLeitao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="6" width="100" height="20" uuid="b0237c1e-1728-448f-acd5-612640f72cdb"/>
+				<textFieldExpression><![CDATA[$F{idMatrizDoadora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="6" width="100" height="20" uuid="232c4c6a-c332-4a8f-a1b6-d62fb41b311e"/>
+				<textFieldExpression><![CDATA[$F{idMatrizReceptora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="6" width="100" height="20" uuid="45d6bbe1-58c9-4ba1-b42b-069d594a9c14"/>
+				<textFieldExpression><![CDATA[$F{dataMovimentacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="6" width="100" height="20" uuid="bf508f0c-037a-4a46-8c61-9a84d15aa832"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="685" y="13" width="100" height="20" uuid="b4f6fba0-4717-456f-bc4e-29350b191a44"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="685" y="34" width="100" height="20" uuid="772e120b-2741-4ead-ba79-8663b9ffaecc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="649" y="13" width="36" height="20" uuid="2948b4b6-d7c8-4c2f-b360-a76d81b9fa3e"/>
+				<text><![CDATA[Page :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="664" y="34" width="85" height="20" uuid="c9e1fa8d-adfd-412c-88dd-10ac352b623b"/>
+				<text><![CDATA[Of]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

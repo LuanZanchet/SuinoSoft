@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79a0a743-d62f-41b0-b71e-e9488571b459">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="197"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select idSemen, brinco, dataEntrada, dataNascimento,Raca.nome,idfornecedor,idnota from semen join raca using(idRaca);]]>
+	</queryString>
+	<field name="idSemen" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="brinco" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataEntrada" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataNascimento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idfornecedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idnota" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="143" y="-44" width="1244" height="123" uuid="98089b12-37b0-466a-922c-e5e1d66780f3"/>
+				<imageExpression><![CDATA["Relatorio.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="32" y="15" width="148" height="20" uuid="108bd0c1-4fe9-470a-b3eb-31f6244cbbcc"/>
+				<text><![CDATA[Lista de sêmens]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e54c3ff7-4231-47cb-81e9-ee0c2841a690"/>
+				<text><![CDATA[idSemen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="100" height="20" uuid="e3de759d-7da3-4e66-83c8-ac335b9ea689"/>
+				<text><![CDATA[brinco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="0" width="100" height="20" uuid="df472719-45c4-4eed-92c5-245e2fb2f51f"/>
+				<text><![CDATA[dataEntrada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="265" y="0" width="100" height="20" uuid="08f94a16-7981-40bf-8e82-e518fb3ae96e"/>
+				<text><![CDATA[dataNascimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="0" width="100" height="20" uuid="8093912b-3e9a-4430-ad65-207ae3252613"/>
+				<text><![CDATA[Raça]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="465" y="0" width="100" height="20" uuid="a94ed997-5f83-4c67-b2c1-770d6396f0f1"/>
+				<text><![CDATA[idfornecedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="565" y="0" width="100" height="20" uuid="c1fc2766-1dc5-498d-b9b5-3357d5567bac"/>
+				<text><![CDATA[idnota]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="6" width="100" height="20" uuid="a4a0f74c-f79b-4a32-867d-57bbd2dd0851"/>
+				<textFieldExpression><![CDATA[$F{idSemen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="6" width="100" height="20" uuid="20a4c824-a3d5-4820-9b59-4fd958cbc512"/>
+				<textFieldExpression><![CDATA[$F{brinco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="6" width="100" height="20" uuid="9b56e42a-0be9-4b86-bd33-a23b96cf9982"/>
+				<textFieldExpression><![CDATA[$F{dataEntrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="6" width="100" height="20" uuid="7aaf2183-8ffe-4dd9-b47b-564fefebc6ed"/>
+				<textFieldExpression><![CDATA[$F{dataNascimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="6" width="100" height="20" uuid="33d76a78-11ea-427a-a392-9793a5ffdbaa"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="6" width="100" height="20" uuid="d414e2aa-eb0e-4aa5-9a66-a9af145591e8"/>
+				<textFieldExpression><![CDATA[$F{idfornecedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="565" y="6" width="100" height="20" uuid="7be29bce-51f1-4069-b89c-cd639e3df9e4"/>
+				<textFieldExpression><![CDATA[$F{idnota}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="685" y="13" width="100" height="20" uuid="b4f6fba0-4717-456f-bc4e-29350b191a44"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="685" y="34" width="100" height="20" uuid="772e120b-2741-4ead-ba79-8663b9ffaecc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="649" y="13" width="36" height="20" uuid="2948b4b6-d7c8-4c2f-b360-a76d81b9fa3e"/>
+				<text><![CDATA[Page :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="664" y="34" width="85" height="20" uuid="c9e1fa8d-adfd-412c-88dd-10ac352b623b"/>
+				<text><![CDATA[Of]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
