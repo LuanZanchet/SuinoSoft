@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.sql.Date;
 
 import javax.swing.JButton;
@@ -24,7 +22,6 @@ import br.edu.unoesc.projetofinal.dao.MorteMaternidadeDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
 import br.edu.unoesc.projetofinal.model.Causa;
 import br.edu.unoesc.projetofinal.model.Lactacao;
-import br.edu.unoesc.projetofinal.model.Matriz;
 import br.edu.unoesc.projetofinal.model.MorteLeitaoMaternidade;
 
 public class Morte_LeitaoMaternidadeEdicao extends JFrame {

@@ -53,7 +53,4 @@ public class Relatorios_Farmacia extends JFrame {
 		
 		
 	}
-	public static void main(String[] args) {
-		new Relatorios_Farmacia();
-	}
 }

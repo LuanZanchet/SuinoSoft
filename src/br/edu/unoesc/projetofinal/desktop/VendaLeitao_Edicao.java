@@ -54,55 +54,51 @@ public class VendaLeitao_Edicao extends JFrame {
 	private CompradorDAO compradorDAO = DaoFactory.get().compradorDao();
 	private VendaLeitaoDAO vendaleitaoDAO = DaoFactory.get().vendaLeitaoDao();
 	private JTextField jtfGuardaValorCompraR = new JTextField();
-	
-	
+
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
 		getContentPane().add(obj);
 	}
 
-	
-	
 	public void setValor(Integer posicao) {
 		jtfGuardaValorCompraR.setText(posicao.toString());
-		
+
 		jtfValor.setText(vendaleitaoDAO.listarTodos().get(posicao).getValor().toString());
 		jtfQuantidade.setText(vendaleitaoDAO.listarTodos().get(posicao).getQuantidade().toString());
 		jtfPesoMedio.setText(vendaleitaoDAO.listarTodos().get(posicao).getPesoMedio().toString());
 		jtfPesoTotal.setText(vendaleitaoDAO.listarTodos().get(posicao).getPesoTotal().toString());
 		jtfGta.setText(vendaleitaoDAO.listarTodos().get(posicao).getGta().toString());
 		jtfData.setText(vendaleitaoDAO.listarTodos().get(posicao).getData().toString());
-		for(Comprador comprador: compradorDAO.listarTodos()){
-			if(comprador.getNome().equals(vendaleitaoDAO.listarTodos().get(posicao).getComprador().getNome())){
+		for (Comprador comprador : compradorDAO.listarTodos()) {
+			if (comprador.getNome().equals(vendaleitaoDAO.listarTodos().get(posicao).getComprador().getNome())) {
 				jcbComprador.setSelectedItem(comprador.getNome());
 			}
 		}
-		for(Lote lote: loteDAO.listarTodos()){
-			if(lote.getNumero().equals(vendaleitaoDAO.listarTodos().get(posicao).getLote().getNumero())){
+		for (Lote lote : loteDAO.listarTodos()) {
+			if (lote.getNumero().equals(vendaleitaoDAO.listarTodos().get(posicao).getLote().getNumero())) {
 				jcbLote.setSelectedItem(lote.getNumero());
 			}
 		}
-		for(Nota nota: notavendaDao.listarTodos()){
-			if(nota.getNumero().equals(vendaleitaoDAO.listarTodos().get(posicao).getNota().getNumero())){
+		for (Nota nota : notavendaDao.listarTodos()) {
+			if (nota.getNumero().equals(vendaleitaoDAO.listarTodos().get(posicao).getNota().getNumero())) {
 				jcbNota.setSelectedItem(nota.getNumero());
 			}
 		}
 		jtfGuardaValorCompraR.setText(posicao.toString());
 	}
-	
-	public VendaLeitao_Edicao(final DefaultTableModel dtmDados){
+
+	public VendaLeitao_Edicao(final DefaultTableModel dtmDados) {
 		setLayout(null);
-		
+
 		jlbVendaLeitao.setFont(new Font("Arial", Font.BOLD, 18));
-		jlbVendaLeitao.setForeground(Color.DARK_GRAY);	
+		jlbVendaLeitao.setForeground(Color.DARK_GRAY);
 		posicionaObjeto(jlbVendaLeitao, 140, 15, 500, 25);
-		
 
 		posicionaObjeto(jlbComprador, 55, 75, 120, 25);
-		posicionaObjeto(jcbComprador , 130, 75, 200, 25);
-		posicionaObjeto(jlbValor ,90, 105, 110, 25);
+		posicionaObjeto(jcbComprador, 130, 75, 200, 25);
+		posicionaObjeto(jlbValor, 90, 105, 110, 25);
 		posicionaObjeto(jtfValor, 130, 105, 200, 25);
-		posicionaObjeto(jlbData , 95, 135, 110, 25);
+		posicionaObjeto(jlbData, 95, 135, 110, 25);
 		posicionaObjeto(jtfData, 130, 135, 200, 25);
 		posicionaObjeto(jlbQuantidade, 55, 165, 200, 25);
 		posicionaObjeto(jtfQuantidade, 130, 165, 200, 25);
@@ -118,9 +114,7 @@ public class VendaLeitao_Edicao extends JFrame {
 		posicionaObjeto(jcbNota, 130, 315, 200, 25);
 		posicionaObjeto(jbtCadastrar, 30, 375, 150, 35);
 		posicionaObjeto(jbtSair, 200, 375, 120, 20);
-		
-		
-		
+
 		jbtSair.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
@@ -128,72 +122,66 @@ public class VendaLeitao_Edicao extends JFrame {
 
 			}
 		});
-		
-		
-		for(Nota nota: notavendaDao.listarTodos()){
+
+		for (Nota nota : notavendaDao.listarTodos()) {
 			jcbNota.addItem(nota.getNumero());
 		}
-		for(Comprador comprador: compradorDAO.listarTodos()){
+		for (Comprador comprador : compradorDAO.listarTodos()) {
 			jcbComprador.addItem(comprador.getNome());
 		}
-		for(Lote lote: loteDAO.listarTodos()){
+		for (Lote lote : loteDAO.listarTodos()) {
 			jcbLote.addItem(lote.getNumero());
 		}
-		
-		
-			jbtCadastrar.addActionListener(new ActionListener() {
+
+		jbtCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if ( jtfData.getText().isEmpty() || jtfGta.getText().isEmpty() || jtfPesoMedio.getText().isEmpty()
+				if (jtfData.getText().isEmpty() || jtfGta.getText().isEmpty() || jtfPesoMedio.getText().isEmpty()
 						|| jtfPesoTotal.getText().isEmpty() || jtfQuantidade.getText().isEmpty()
 						|| jtfValor.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Existem informações não preenchidas no formulário");
 				} else {
-					int aux = 0;				
-					for (VendaLeitao  vendaLeitao: vendaleitaoDAO.listarTodos()) {
+					int aux = 0;
+					for (VendaLeitao vendaLeitao : vendaleitaoDAO.listarTodos()) {
 						if (vendaLeitao.getComprador().equals(jcbComprador.getSelectedItem())) {
 							aux = 1;
 							break;
 						}
-						
+
 					}
 					if (aux == 0) {
 						VendaLeitao venda = new VendaLeitao();
-						venda = vendaleitaoDAO.listarTodos()
-								.get(Integer.valueOf(jtfGuardaValorCompraR
-										.getText()));
-						venda.setQuantidade(Integer.valueOf(jtfQuantidade.getText()));	
+						venda = vendaleitaoDAO.listarTodos().get(Integer.valueOf(jtfGuardaValorCompraR.getText()));
+						venda.setQuantidade(Integer.valueOf(jtfQuantidade.getText()));
 						venda.setGta(Long.valueOf(jtfGta.getText()));
 						venda.setLote(loteDAO.listarTodos().get(jcbLote.getSelectedIndex()));
 						venda.setPesoMedio(Double.valueOf(jtfPesoMedio.getText()));
-						venda.setPesoTotal(Double.valueOf(jtfPesoTotal.getText()));	
-						venda.setValor(Double.valueOf(jtfValor.getText()));	
+						venda.setPesoTotal(Double.valueOf(jtfPesoTotal.getText()));
+						venda.setValor(Double.valueOf(jtfValor.getText()));
 						venda.setComprador(compradorDAO.listarTodos().get(jcbComprador.getSelectedIndex()));
 						venda.setNota(notavendaDao.listarTodos().get(jcbNota.getSelectedIndex()));
 						venda.setData(Date.valueOf(jtfData.getText()));
-					
-						
-						
+
 						vendaleitaoDAO.alter(venda);
 						JOptionPane.showMessageDialog(null, "Venda Leitão Alterada com Sucesso");
 						dtmDados.setRowCount(1);
-						int linha=1;
-						for (VendaLeitao  vendaLeitao: vendaleitaoDAO.listarTodos()) {
+						int linha = 1;
+						for (VendaLeitao vendaLeitao : vendaleitaoDAO.listarTodos()) {
 							dtmDados.setRowCount(dtmDados.getRowCount() + 1);
 							dtmDados.setValueAt(vendaLeitao.getCodigo(), linha, 0);
-							dtmDados.setValueAt(vendaLeitao.getLote().getNumero(),linha, 1);
+							dtmDados.setValueAt(vendaLeitao.getLote().getNumero(), linha, 1);
 							dtmDados.setValueAt(vendaLeitao.getValor(), linha, 2);
 							dtmDados.setValueAt(vendaLeitao.getData(), linha, 3);
-							dtmDados.setValueAt(vendaLeitao.getQuantidade(), linha,4);
-							dtmDados.setValueAt(vendaLeitao.getPesoMedio(),linha, 5);
-							dtmDados.setValueAt(vendaLeitao.getPesoTotal(),linha, 6);
-							dtmDados.setValueAt(vendaLeitao.getLote().getNumero(),linha, 7);
-							dtmDados.setValueAt(vendaLeitao.getGta(),linha, 8);
-							dtmDados.setValueAt(vendaLeitao.getNota().getNumero(),linha, 9);
-							dtmDados.setValueAt(vendaLeitao.getComprador().getNome(),linha, 10);
-							
+							dtmDados.setValueAt(vendaLeitao.getQuantidade(), linha, 4);
+							dtmDados.setValueAt(vendaLeitao.getPesoMedio(), linha, 5);
+							dtmDados.setValueAt(vendaLeitao.getPesoTotal(), linha, 6);
+							dtmDados.setValueAt(vendaLeitao.getLote().getNumero(), linha, 7);
+							dtmDados.setValueAt(vendaLeitao.getGta(), linha, 8);
+							dtmDados.setValueAt(vendaLeitao.getNota().getNumero(), linha, 9);
+							dtmDados.setValueAt(vendaLeitao.getComprador().getNome(), linha, 10);
+
 							linha++;
 						}
-						
+
 					}
 					if (aux == 1) {
 						JOptionPane.showMessageDialog(null, "Já existe uma venda cadastrada para essa nota");
@@ -202,12 +190,7 @@ public class VendaLeitao_Edicao extends JFrame {
 				}
 			}
 		});
-		
-		
-		
-		
-		
-		
+
 		setTitle("Venda Leitao");
 		setSize(420, 500);
 		setVisible(true);
@@ -215,10 +198,6 @@ public class VendaLeitao_Edicao extends JFrame {
 		setLocationRelativeTo(null);
 		this.getContentPane().setBackground(Color.lightGray);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-	}
-
-	public static void main(String[] args) {
-		new VendaLeitao_Edicao(null);
 	}
 
 }

@@ -180,22 +180,21 @@ public class Matriz_Inclusao extends JFrame {
 							matriz.setRaca(racaDao.listarTodos().get(jcbRaca.getSelectedIndex()));
 							matriz.setFornecedor(fornecedorDao.listarTodos().get(jcbFornecedor.getSelectedIndex()));
 							matriz.setObservacao(jtfObservacao.getText());
-							if(jrbMatrizGestante.isSelected()){
+							if (jrbMatrizGestante.isSelected()) {
 								matriz.setStatus("Gestante");
-							}
-							else{
+							} else {
 								matriz.setStatus("Vazia");
 							}
-							matriz.setIdade(100);// ajeitar aki 
+							matriz.setIdade(100);// ajeitar aki
 							matriz.setTetasDireitas(Integer.valueOf(jtfTetaDireita.getText()));
 							matriz.setTetasEsquerdas(Integer.valueOf(jtfTetaEsquerda.getText()));
 							matriz.setNumeroCiclos(Integer.valueOf(jtfCiclo.getText()));
 							matrizDao.store(matriz);
 							JOptionPane.showMessageDialog(null, "Matriz Cadastrada com Sucesso");
-							int linha=1;
+							int linha = 1;
 							dtmDados.setRowCount(1);
-							for(Matriz matriz1:matrizDao.listarTodos()){
-								dtmDados.setRowCount(dtmDados.getRowCount()+1);
+							for (Matriz matriz1 : matrizDao.listarTodos()) {
+								dtmDados.setRowCount(dtmDados.getRowCount() + 1);
 								dtmDados.setValueAt(matriz1.getMossa(), linha, 0);
 								dtmDados.setValueAt(matriz1.getBrinco(), linha, 1);
 								dtmDados.setValueAt(matriz1.getStatus(), linha, 2);

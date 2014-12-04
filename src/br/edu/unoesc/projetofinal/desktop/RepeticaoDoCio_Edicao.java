@@ -5,8 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.sql.Date;
+
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -14,10 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 import br.edu.unoesc.projetofinal.dao.MatrizDAO;
 import br.edu.unoesc.projetofinal.dao.RepeticaoCioDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
-import br.edu.unoesc.projetofinal.model.Aborto;
 import br.edu.unoesc.projetofinal.model.Matriz;
 import br.edu.unoesc.projetofinal.model.RepeticaoCio;
 public class RepeticaoDoCio_Edicao extends JFrame{

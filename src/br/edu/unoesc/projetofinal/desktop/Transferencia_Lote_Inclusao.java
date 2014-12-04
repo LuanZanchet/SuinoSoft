@@ -1,6 +1,5 @@
 package br.edu.unoesc.projetofinal.desktop;
 
-import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -20,9 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import br.edu.unoesc.projetofinal.dao.LoteDAO;
 import br.edu.unoesc.projetofinal.dao.TransferenciaEntreLoteDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
-import br.edu.unoesc.projetofinal.model.Comprador;
 import br.edu.unoesc.projetofinal.model.Lote;
-import br.edu.unoesc.projetofinal.model.Nota;
 import br.edu.unoesc.projetofinal.model.TransferenciaEntreLotes;
 
 public class Transferencia_Lote_Inclusao extends JFrame {
@@ -40,13 +36,9 @@ public class Transferencia_Lote_Inclusao extends JFrame {
 	private JTextField jtfPesoTotal = new JTextField();
 	private JButton jbtCadastrar = new JButton("Cadastrar");
 	private JButton jbtSair = new JButton("Sair");
-	
 
 	private LoteDAO loteDAO = DaoFactory.get().loteDao();
-	private TransferenciaEntreLoteDAO tranfereLoteDAO = DaoFactory.get()
-			.transferenciaEntreLotesDao();
-
-	
+	private TransferenciaEntreLoteDAO tranfereLoteDAO = DaoFactory.get().transferenciaEntreLotesDao();
 
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
@@ -80,19 +72,14 @@ public class Transferencia_Lote_Inclusao extends JFrame {
 
 		jbtCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (jtfData.getText().isEmpty()
-						|| jtfQuantidade.getText().isEmpty()
+				if (jtfData.getText().isEmpty() || jtfQuantidade.getText().isEmpty()
 						|| jtfPesoTotal.getText().isEmpty()) {
-					JOptionPane
-							.showMessageDialog(null,
-									"Existem informações não preenchidas no formulário");
+					JOptionPane.showMessageDialog(null, "Existem informações não preenchidas no formulário");
 				} else {
 					int aux = 0;
-					for (TransferenciaEntreLotes transferencia : tranfereLoteDAO
-							.listarTodos()) {
+					for (TransferenciaEntreLotes transferencia : tranfereLoteDAO.listarTodos()) {
 
-						if (transferencia.getLoteDestino().getNumero() == jcbLoteOrigem
-								.getSelectedIndex()) {
+						if (transferencia.getLoteDestino().getNumero() == jcbLoteOrigem.getSelectedIndex()) {
 							aux = 1;
 							break;
 						}
@@ -101,46 +88,32 @@ public class Transferencia_Lote_Inclusao extends JFrame {
 					if (aux == 0) {
 						TransferenciaEntreLotes transfere = new TransferenciaEntreLotes();
 
-						transfere.setLoteOrigem(loteDAO.listarTodos().get(
-								jcbLoteOrigem.getSelectedIndex()));
-						transfere.setLoteDestino(loteDAO.listarTodos().get(
-								jcbLoteDestino.getSelectedIndex()));
+						transfere.setLoteOrigem(loteDAO.listarTodos().get(jcbLoteOrigem.getSelectedIndex()));
+						transfere.setLoteDestino(loteDAO.listarTodos().get(jcbLoteDestino.getSelectedIndex()));
 						transfere.setData(Date.valueOf(jtfData.getText()));
-						transfere.setQuantidade(Integer.valueOf(jtfQuantidade
-								.getText()));
-						transfere.setPesoTotal(Double.valueOf(jtfPesoTotal
-								.getText()));
+						transfere.setQuantidade(Integer.valueOf(jtfQuantidade.getText()));
+						transfere.setPesoTotal(Double.valueOf(jtfPesoTotal.getText()));
 
 						tranfereLoteDAO.store(transfere);
-						JOptionPane.showMessageDialog(null,
-								"Transferencia Cadastrada com Sucesso");
+						JOptionPane.showMessageDialog(null, "Transferencia Cadastrada com Sucesso");
 						dtmDados.setRowCount(1);
 						int linha = 1;
-						for (TransferenciaEntreLotes transferencia : tranfereLoteDAO
-								.listarTodos()) {
-							
+						for (TransferenciaEntreLotes transferencia : tranfereLoteDAO.listarTodos()) {
+
 							dtmDados.setRowCount(dtmDados.getRowCount() + 1);
-							dtmDados.setValueAt(transferencia.getCodigo(),
-									linha, 0);
-							dtmDados.setValueAt(transferencia.getLoteOrigem()
-									.getNumero(), linha, 1);
-							dtmDados.setValueAt(transferencia.getLoteDestino()
-									.getNumero(), linha, 2);
-							dtmDados.setValueAt(transferencia.getData(), linha,
-									3);
-							dtmDados.setValueAt(transferencia.getQuantidade(),
-									linha, 4);
-							dtmDados.setValueAt(transferencia.getPesoTotal(),
-									linha, 5);
+							dtmDados.setValueAt(transferencia.getCodigo(), linha, 0);
+							dtmDados.setValueAt(transferencia.getLoteOrigem().getNumero(), linha, 1);
+							dtmDados.setValueAt(transferencia.getLoteDestino().getNumero(), linha, 2);
+							dtmDados.setValueAt(transferencia.getData(), linha, 3);
+							dtmDados.setValueAt(transferencia.getQuantidade(), linha, 4);
+							dtmDados.setValueAt(transferencia.getPesoTotal(), linha, 5);
 
 							linha++;
 						}
 
 					}
 					if (aux == 1) {
-						JOptionPane
-								.showMessageDialog(null,
-										"Já existe este lote neste destino");
+						JOptionPane.showMessageDialog(null, "Já existe este lote neste destino");
 					}
 					dispose();
 				}
@@ -164,9 +137,4 @@ public class Transferencia_Lote_Inclusao extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
-
-	public static void main(String[] args) {
-		new Transferencia_Lote_Inclusao(null);
-	}
-
 }

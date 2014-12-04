@@ -17,17 +17,11 @@ import javax.swing.table.DefaultTableModel;
 
 import br.edu.unoesc.projetofinal.dao.CausaDAO;
 import br.edu.unoesc.projetofinal.dao.LoteDAO;
-import br.edu.unoesc.projetofinal.dao.MatrizDAO;
 import br.edu.unoesc.projetofinal.dao.MorteLeitaoCrecheDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
 import br.edu.unoesc.projetofinal.model.Causa;
-import br.edu.unoesc.projetofinal.model.CompraRacao;
-import br.edu.unoesc.projetofinal.model.Fornecedor;
 import br.edu.unoesc.projetofinal.model.Lote;
-import br.edu.unoesc.projetofinal.model.Matriz;
 import br.edu.unoesc.projetofinal.model.MorteLeitaoCreche;
-import br.edu.unoesc.projetofinal.model.Nota;
-import br.edu.unoesc.projetofinal.model.Racao;
 
 public class Morte_Leitao_CrecheEditar extends JFrame {
 
@@ -167,7 +161,6 @@ public class Morte_Leitao_CrecheEditar extends JFrame {
 			}
 		});
 
-		// ///////////////////////////
 
 		setTitle("Morte de Leitão Creche");
 		setSize(420, 330);
@@ -177,10 +170,4 @@ public class Morte_Leitao_CrecheEditar extends JFrame {
 		this.getContentPane().setBackground(Color.lightGray);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
-
-	public static void main(String[] args) {
-		new Morte_Leitao_CrecheEditar(null);
-
-	}
-
 }

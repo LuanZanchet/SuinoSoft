@@ -1,6 +1,5 @@
 package br.edu.unoesc.projetofinal.desktop;
 
-import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.sql.Date;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -163,9 +161,4 @@ public class Transferencia_Lote_Edicao extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
-
-	public static void main(String[] args) {
-		new Transferencia_Lote_Edicao(null);
-	}
-
 }

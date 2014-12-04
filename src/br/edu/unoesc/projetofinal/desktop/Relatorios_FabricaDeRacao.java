@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -15,7 +14,6 @@ import br.edu.unoesc.projetofinal.jdbc.dao.ConexaoUtil;
 import br.edu.unoesc.projetofinal.jdbc.relatorio.RelatorioUtil;
 
 public class Relatorios_FabricaDeRacao extends JFrame {
-	private JLabel jlbCompraRacao, jlbCadastroRacao;
 	private JTree jtrCompraRacao = new JTree(new DefaultMutableTreeNode("Lista de Compra de Rações"));
 	private JTree jtrCadastroRacao = new JTree(new DefaultMutableTreeNode("Lista de Cadastro de Rações"));
 	public Relatorios_FabricaDeRacao() {

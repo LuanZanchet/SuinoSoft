@@ -4,39 +4,29 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import br.edu.unoesc.projetofinal.dao.CompraRacaoDAO;
 import br.edu.unoesc.projetofinal.dao.RacaoDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
-import br.edu.unoesc.projetofinal.model.CompraRacao;
 import br.edu.unoesc.projetofinal.model.Racao;
 
 public class Racao_Inclusao extends JFrame {
-	
+
 	private JLabel jlbracao = new JLabel("Cadastra Ração");
 	private JLabel jlbNome = new JLabel("Nome ");
-	
-	
-	
-	
+
 	private JTextField jtfNomeRacao = new JTextField();
-	
-	
+
 	private RacaoDAO racaoDao = DaoFactory.get().racaoDao();
-	
-	private JButton jbtCadastrarFornCli = new JButton("Cadastrar"),
-			jbtSair = new JButton("Sair");
+
+	private JButton jbtCadastrarFornCli = new JButton("Cadastrar"), jbtSair = new JButton("Sair");
 
 	private void posicionaObjeto(JComponent obj, int x, int y, int w, int h) {
 		obj.setBounds(x, y, w, h);
@@ -49,15 +39,9 @@ public class Racao_Inclusao extends JFrame {
 		jlbracao.setFont(new Font("Arial", Font.BOLD, 24));
 		jlbracao.setForeground(Color.DARK_GRAY);
 		posicionaObjeto(jlbracao, 95, 45, 500, 25);
-		
-		
+
 		posicionaObjeto(jlbNome, 90, 105, 100, 25);
 		posicionaObjeto(jtfNomeRacao, 130, 105, 180, 25);
-		
-		
-		
-		
-		
 
 		posicionaObjeto(jbtCadastrarFornCli, 90, 185, 100, 30);
 		posicionaObjeto(jbtSair, 230, 185, 80, 20);
@@ -68,25 +52,24 @@ public class Racao_Inclusao extends JFrame {
 
 			}
 		});
-		
-		
+
 		jbtCadastrarFornCli.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if ( jtfNomeRacao.getText().isEmpty()  ) {
+				if (jtfNomeRacao.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Existem informações não preenchidas no formulário");
 				} else {
-					int aux = 0;				
+					int aux = 0;
 					for (Racao racao : racaoDao.listarTodos()) {
 						if (racao.getNome().equals(jtfNomeRacao.getText())) {
 							aux = 1;
 							break;
 						}
-						
+
 					}
 					if (aux == 0) {
 						Racao Racao = new Racao();
 						Racao.setNome(jtfNomeRacao.getText());
-						
+
 						racaoDao.store(Racao);
 						JOptionPane.showMessageDialog(null, "Ração Cadastrada com Sucesso");
 						dtmDados.setRowCount(1);
@@ -97,12 +80,12 @@ public class Racao_Inclusao extends JFrame {
 							dtmDados.setValueAt(racao.getNome(), linha, 1);
 							linha++;
 						}
-						
+
 					}
 					if (aux == 1) {
 						JOptionPane.showMessageDialog(null, "Já existe a Ração cadastrada");
 					}
-					
+
 				}
 				dispose();
 			}
@@ -116,7 +99,5 @@ public class Racao_Inclusao extends JFrame {
 		this.getContentPane().setBackground(Color.lightGray);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
-
-	
 
 }

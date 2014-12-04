@@ -64,8 +64,4 @@ public class Relatorios_Financeiro extends JFrame {
 			relatorio.CompileViewReport("src/relatorios/NotasVendas.jrxml", ConexaoUtil.getConexao(), parametros);
 		}
 	}
-
-	public static void main(String[] args) {
-		new Relatorios_Financeiro();
-	}
 }

@@ -32,8 +32,7 @@ public class Relatorios_Manejo extends JFrame {
 	private JTree jtrTranferenciadeLotes = new JTree(new DefaultMutableTreeNode("Transferencia de Lotes"));
 	private JTree jtrMorteLeitao = new JTree(new DefaultMutableTreeNode("Morte de Leitão cheche"));
 	private JTree jtrVendaDeLeitao = new JTree(new DefaultMutableTreeNode("Venda de Leitão"));
-	
-	
+
 	public Relatorios_Manejo() {
 		setLayout(null);
 		jtrEntradaFemea.setBounds(60, 30, 200, 25);
@@ -234,8 +233,7 @@ public class Relatorios_Manejo extends JFrame {
 
 			}
 		});
-		
-		
+
 		setTitle("Relatório");
 		setSize(300, 600);
 		setVisible(true);
@@ -244,9 +242,11 @@ public class Relatorios_Manejo extends JFrame {
 		this.getContentPane().setBackground(Color.white);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
+
 	public static void main(String[] args) {
 		new Relatorios_Manejo();
 	}
+
 	public void relatorio() {
 		dispose();
 		Map<String, Object> parametros = new HashMap<String, Object>();
@@ -274,7 +274,8 @@ public class Relatorios_Manejo extends JFrame {
 			relatorio.CompileViewReport("src/relatorios/Semen.jrxml", ConexaoUtil.getConexao(), parametros);
 		}
 		if (jtrMortedeLeitao.isRowSelected(0)) {
-			relatorio.CompileViewReport("src/relatorios/MorteLeitaoMaternidade.jrxml", ConexaoUtil.getConexao(), parametros);
+			relatorio.CompileViewReport("src/relatorios/MorteLeitaoMaternidade.jrxml", ConexaoUtil.getConexao(),
+					parametros);
 		}
 		if (jtrMorteLeitao.isRowSelected(0)) {
 			relatorio.CompileViewReport("src/relatorios/MorteLeitaoCreche.jrxml", ConexaoUtil.getConexao(), parametros);
@@ -283,7 +284,8 @@ public class Relatorios_Manejo extends JFrame {
 			relatorio.CompileViewReport("src/relatorios/MortePlantel.jrxml", ConexaoUtil.getConexao(), parametros);
 		}
 		if (jtrMovimentacaoDeLeitao.isRowSelected(0)) {
-			relatorio.CompileViewReport("src/relatorios/MovimentacaoLeitao.jrxml", ConexaoUtil.getConexao(), parametros);
+			relatorio
+					.CompileViewReport("src/relatorios/MovimentacaoLeitao.jrxml", ConexaoUtil.getConexao(), parametros);
 		}
 		if (jtrParto.isRowSelected(0)) {
 			relatorio.CompileViewReport("src/relatorios/Parto.jrxml", ConexaoUtil.getConexao(), parametros);
@@ -298,7 +300,8 @@ public class Relatorios_Manejo extends JFrame {
 			relatorio.CompileViewReport("src/relatorios/Vacina.jrxml", ConexaoUtil.getConexao(), parametros);
 		}
 		if (jtrTranferenciadeLotes.isRowSelected(0)) {
-			relatorio.CompileViewReport("src/relatorios/TransferenciaDeLotes.jrxml", ConexaoUtil.getConexao(), parametros);
+			relatorio.CompileViewReport("src/relatorios/TransferenciaDeLotes.jrxml", ConexaoUtil.getConexao(),
+					parametros);
 		}
 		if (jtrVendaDeLeitao.isRowSelected(0)) {
 			relatorio.CompileViewReport("src/relatorios/VendaLeitao.jrxml", ConexaoUtil.getConexao(), parametros);
@@ -306,11 +309,7 @@ public class Relatorios_Manejo extends JFrame {
 		if (jtrVendaPlantel.isRowSelected(0)) {
 			relatorio.CompileViewReport("src/relatorios/VendaPlantel.jrxml", ConexaoUtil.getConexao(), parametros);
 		}
-		
-		
-		
-		
+
 	}
-	
-	
+
 }

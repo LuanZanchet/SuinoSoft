@@ -21,7 +21,6 @@ import br.edu.unoesc.projetofinal.dao.CompradorDAO;
 import br.edu.unoesc.projetofinal.dao.NotaVendaDAO;
 import br.edu.unoesc.projetofinal.dao.factory.DaoFactory;
 import br.edu.unoesc.projetofinal.model.Comprador;
-import br.edu.unoesc.projetofinal.model.NotaCompra;
 import br.edu.unoesc.projetofinal.model.NotaVenda;
 
 public class NotaVenda_Inclusao extends JFrame {
